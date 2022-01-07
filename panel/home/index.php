@@ -251,6 +251,9 @@
                         position : "topCenter"
                       });
                   refreshTable();
+                  setInterval(function() {
+                    $( ".iziToast-close" ).click()
+                  }, 1000);
                   }else if(dataResult.statusCode==201){
                       iziToast.error({
                       title: "System error has occurred.Please try it again later.",

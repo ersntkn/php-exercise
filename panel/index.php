@@ -14,7 +14,7 @@
 
   <?php include "panel/panel_include/aside_menu.php" ?>
 
-    <?php include "panel/home/index.php" ?>
+  <?php include "panel/home/index.php" ?>
 
   <?php include "panel/panel_include/footer.php" ?>
 

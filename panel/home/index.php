@@ -92,16 +92,15 @@
 
 
 <script>
-$(document).ready(function(){
- refreshTable()
-});
-
+  $(document).ready(function(){
+   refreshTable()
+  });
 
   $(document).on('click', ".custom-control-input", function(){
   var id          = $(this).attr("id");
   if((id != "")){
     $.ajax({
-      url: "<?php echo "./db/isActiveController.php";?>",
+      url: "<?php echo "./functions/isActiveController.php";?>",
       type: "POST",
       data: {id: id},
       success: function(dataResult){
@@ -123,18 +122,14 @@ $(document).ready(function(){
       position : "topCenter"
     });
   }
-
-  });
-
-
+});
 
   $(document).on('click', "#saveArticle", function(){
-
   var title          = $('#title').val();
   var description    = $('#description').val();
   if((title != "") && (description != "")){
     $.ajax({
-      url: "<?php echo "./db/addarticle.php";?>",
+      url: "<?php echo "./functions/addarticle.php";?>",
       type: "POST",
       data: {title: title,description:description},
       success: function(dataResult){
@@ -149,7 +144,6 @@ $(document).ready(function(){
             $('#title').val("")
             $('#description').val("")
             $( ".closeBtn" ).click()
-
         }
         else if(dataResult.statusCode==201){
           iziToast.error({
@@ -168,11 +162,12 @@ $(document).ready(function(){
     });
   }
   });
+
   $(document).on('click', ".fillArticleModal", function(){
   var id          = $(this).attr("value");
   if((id != "")){
     $.ajax({
-      url: "<?php echo "./db/getarticle.php";?>",
+      url: "<?php echo "./functions/getarticle.php";?>",
       type: "POST",
       data: {id: id},
       success: function(dataResult){
@@ -198,7 +193,7 @@ $(document).ready(function(){
   var updatedDescription   = $('#updatedDescription').val()
   if((id != "") && (updatedTitle != "") && (updatedDescription != "")){
     $.ajax({
-      url: "<?php echo "./db/updatearticle.php";?>",
+      url: "<?php echo "./functions/updatearticle.php";?>",
       type: "POST",
       data: {id: id, updatedTitle:updatedTitle, updatedDescription:updatedDescription},
       success: function(dataResult){
@@ -225,8 +220,8 @@ $(document).ready(function(){
       title: "Please fill the required places.",
       message: '',
       position : "topCenter"
-  });
-  }
+    });
+   }
   });
 
   $(document).on('click', ".deleteArticle", function(){
@@ -244,7 +239,7 @@ $(document).ready(function(){
         buttons: [
             ['<button>Ok</button>', function (instance, toast) {
               $.ajax({
-                url: "<?php echo "./db/deletearticle.php";?>",
+                url: "<?php echo "./functions/deletearticle.php";?>",
                 type: "POST",
                 data: {id: id},
                 success: function(dataResult){
@@ -282,12 +277,12 @@ $(document).ready(function(){
         onClosing: function(instance, toast, closedBy){
         }
     });
-  }
+   }
   });
 
   function refreshTable(){
     $.ajax({
-      url: "<?php echo "./db/refreshTable.php";?>",
+      url: "<?php echo "./functions/refreshTable.php";?>",
       type: "POST",
       data: {},
       success: function(dataResult){
@@ -313,9 +308,4 @@ $(document).ready(function(){
     });
   }
 
-
-
-
-
-
-</script>
+  </script>

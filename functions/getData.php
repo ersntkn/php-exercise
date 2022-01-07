@@ -1,5 +1,5 @@
 <?php
-include 'db.php';
+include '../db/db.php';
 $name =  $_POST["name"];
 $surname =  $_POST["surname"];
 $email =  $_POST["email"];

@@ -1,12 +1,10 @@
 <?php
-include 'db.php';
-session_start();
-$user_id     =  $_SESSION["user"]["name"];
-$title       =  $_POST["title"];
-$description =  $_POST["description"];
-$date        =   date("Y-m-d H:i:s");
-
-
+  include '../db/db.php';
+  session_start();
+  $user_id     =  $_SESSION["user"]["name"];
+  $title       =  $_POST["title"];
+  $description =  $_POST["description"];
+  $date        =   date("Y-m-d H:i:s");
   $query = "INSERT INTO articles (whoIsAdd, title, description, isActive, createdAt) VALUES ('$user_id','$title','$description',1,'$date')";
   if (mysqli_query($conn, $query)) {
     echo json_encode(array(
@@ -17,6 +15,5 @@ $date        =   date("Y-m-d H:i:s");
        "statusCode"=>201
      ));
   }
-
-mysqli_close($conn);
+  mysqli_close($conn);
 ?>

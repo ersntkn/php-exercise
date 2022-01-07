@@ -60,13 +60,6 @@
   </div>
 </div>
 <script>
-
-
-
-
-
-
-
   let isNonEmptyText
   let isCheckedCheckBox
   let isValid
@@ -153,7 +146,7 @@
 	var password   = $('#password').val();
 	if((name != "") && (surname != "") && (email != "") && (password != "") && (isNonEmptyText != false) &&  (isValid != false)){
 		$.ajax({
-			url: "<?php echo "./db/register.php";?>",
+			url: "<?php echo "./functions/register.php";?>",
 			type: "POST",
 			data: {name: name,surname:surname, email:email, password:password},
 			success: function(dataResult){
@@ -192,7 +185,5 @@
 				position : "topCenter"
 		});
 	}
-
 	});
-
 </script>

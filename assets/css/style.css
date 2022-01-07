@@ -1,0 +1,14 @@
+.unmask {
+  position: absolute;
+  right: 12px;
+  top: 68%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  font-size: x-large;
+  color: darkgray;
+}
+.unmask i{
+  font-size: 1.2rem!important;
+  font-weight: 500!important;
+}
